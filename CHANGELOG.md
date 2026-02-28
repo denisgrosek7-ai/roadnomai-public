@@ -8,4 +8,12 @@
 - Added review mock dataset mode for Nearby Explore (no network/GPS dependency).
 - Added Korak 4 release docs and release checklist template.
 
-sync test
+## VAL 7.4 — Dynamic Weather Context
+
+- Integrated Google Maps Platform Weather API (backend-only).
+- Context-aware grid caching (0.1° precision, deterministic keys).
+- Semantic ContextPack v7.4 (LLM-friendly weather abstraction).
+- Isolated circuit breaker (`cb:google:weather`).
+- Hard timeout ≤ 500ms.
+- Strict soft-fail policy (never blocks generation).
+- Full test coverage: cache determinism, breaker isolation, soft-fail integrity.

@@ -1,0 +1,100 @@
+[telemetry] {"eventName":"INTELLIGENCE_ROUTER_SELECTED","timestamp":"2026-02-28T08:16:32.379Z","requestId":"e1","providerId":"openai","modelId":"m","latencyMs":10,"tokensIn":20,"tokensOut":30,"costEstimateUsd":0.001}
+[telemetry] {"eventName":"PLAN_GENERATED","timestamp":"2026-02-28T08:16:32.381Z","requestId":"e1","segment_count":0,"fallback_count":0}
+[telemetry] {"eventName":"judge_skipped","timestamp":"2026-02-28T08:16:32.381Z","taskId":"n/a","traceId":"trace-enrich","producerProviderId":"openai","judgeProviderId":"none","remainingBudgetMs":1000,"reason":"disabled"}
+[telemetry] {"eventName":"enrichment_skipped","timestamp":"2026-02-28T08:16:32.381Z","traceId":"trace-enrich","producerProviderId":"openai","remainingBudgetMs":1000,"stopsTotal":1,"reason":"disabled"}
+[telemetry] {"eventName":"INTELLIGENCE_ROUTER_SELECTED","timestamp":"2026-02-28T08:16:32.382Z","requestId":"e2","providerId":"openai","modelId":"m","latencyMs":10,"tokensIn":20,"tokensOut":30,"costEstimateUsd":0.001}
+[telemetry] {"eventName":"PLAN_GENERATED","timestamp":"2026-02-28T08:16:32.382Z","requestId":"e2","segment_count":0,"fallback_count":0}
+[telemetry] {"eventName":"judge_skipped","timestamp":"2026-02-28T08:16:32.382Z","taskId":"n/a","traceId":"trace-enrich","producerProviderId":"openai","judgeProviderId":"none","remainingBudgetMs":150,"reason":"disabled"}
+[telemetry] {"eventName":"enrichment_skipped","timestamp":"2026-02-28T08:16:32.382Z","traceId":"trace-enrich","producerProviderId":"openai","remainingBudgetMs":150,"stopsTotal":1,"reason":"budget"}
+✔ ENRICHMENT_ENABLED=0 -> skipped reason=disabled (3.045625ms)
+✔ budget < 200ms -> skipped reason=budget (0.321791ms)
+✔ cache hit -> second call makes zero provider calls (1.130959ms)
+✔ partial success -> geo ok, img fail => meta.enrichment_partial=true and geo present (0.179875ms)
+✔ missing API key -> provider disabled => soft fail, plan returned, enrichment_failed=true (0.389708ms)
+✔ concurrency limit respected (63.7ms)
+[INTEL] {"event":"router_attempt","taskId":"f4d9a9e569e8228273792359e5e4b8672acc396cb834476927f0c1abffae0831","category":"routing","schemaVersion":"trip_plan_v3","policy":{"quality":"balanced","allowFallback":true,"maxLatencyMs":500},"plan":["openai","gemini"],"chosen":"openai","failoverCount":0,"traceId":"trace-integration-1"}
+[INTEL] {"event":"router_attempt_failed","taskId":"f4d9a9e569e8228273792359e5e4b8672acc396cb834476927f0c1abffae0831","category":"routing","schemaVersion":"trip_plan_v3","chosen":"openai","traceId":"trace-integration-1","code":"E_RATE_LIMITED","retryable":true,"httpStatus":429,"modelId":"gpt-4o-mini"}
+[INTEL] {"event":"router_attempt","taskId":"f4d9a9e569e8228273792359e5e4b8672acc396cb834476927f0c1abffae0831","category":"routing","schemaVersion":"trip_plan_v3","policy":{"quality":"balanced","allowFallback":true,"maxLatencyMs":500},"plan":["openai","gemini"],"chosen":"gemini","failoverCount":1,"traceId":"trace-integration-1"}
+[INTEL] {"event":"router_success","taskId":"f4d9a9e569e8228273792359e5e4b8672acc396cb834476927f0c1abffae0831","category":"routing","schemaVersion":"trip_plan_v3","policy":{"quality":"balanced","allowFallback":true,"maxLatencyMs":500},"plan":["openai","gemini"],"chosen":"gemini","failoverCount":1,"traceId":"trace-integration-1","modelId":"gemini-2.5-flash"}
+✔ integration: fallback then success preserves normalized meta fields (3.268042ms)
+[INTEL] {"event":"router_attempt","taskId":"b9d26c2e1fb2ca031bac6feef3362451e4c3619d6206076c631d85caa38e790d","category":"routing","schemaVersion":"trip_plan_v3","policy":{"quality":"balanced","allowFallback":true,"maxLatencyMs":650},"plan":["openai","gemini"],"chosen":"openai","failoverCount":0,"traceId":"c85960f3-e999-4ded-9b15-cd0fc1b91f8a"}
+[INTEL] {"event":"router_attempt_failed","taskId":"b9d26c2e1fb2ca031bac6feef3362451e4c3619d6206076c631d85caa38e790d","category":"routing","schemaVersion":"trip_plan_v3","chosen":"openai","traceId":"c85960f3-e999-4ded-9b15-cd0fc1b91f8a","code":"E_DEGRADED_MODE","retryable":true,"httpStatus":503,"modelId":"m1"}
+[INTEL] {"event":"router_attempt","taskId":"b9d26c2e1fb2ca031bac6feef3362451e4c3619d6206076c631d85caa38e790d","category":"routing","schemaVersion":"trip_plan_v3","policy":{"quality":"balanced","allowFallback":true,"maxLatencyMs":650},"plan":["openai","gemini"],"chosen":"gemini","failoverCount":1,"traceId":"c85960f3-e999-4ded-9b15-cd0fc1b91f8a"}
+[INTEL] {"event":"router_success","taskId":"b9d26c2e1fb2ca031bac6feef3362451e4c3619d6206076c631d85caa38e790d","category":"routing","schemaVersion":"trip_plan_v3","policy":{"quality":"balanced","allowFallback":true,"maxLatencyMs":650},"plan":["openai","gemini"],"chosen":"gemini","failoverCount":1,"traceId":"c85960f3-e999-4ded-9b15-cd0fc1b91f8a","modelId":"m2"}
+[INTEL] {"event":"router_attempt","taskId":"b9d26c2e1fb2ca031bac6feef3362451e4c3619d6206076c631d85caa38e790d","category":"routing","schemaVersion":"trip_plan_v3","policy":{"quality":"balanced","allowFallback":true,"maxLatencyMs":650},"plan":["openai","gemini"],"chosen":"openai","failoverCount":0,"traceId":"1b974718-5aab-4587-8d84-e6bb06687767"}
+[INTEL] {"event":"router_attempt_failed","taskId":"b9d26c2e1fb2ca031bac6feef3362451e4c3619d6206076c631d85caa38e790d","category":"routing","schemaVersion":"trip_plan_v3","chosen":"openai","traceId":"1b974718-5aab-4587-8d84-e6bb06687767","code":"E_SCHEMA_INVALID","retryable":false,"httpStatus":502,"modelId":"m1"}
+[INTEL] {"event":"router_attempt","taskId":"dcad8fc4f9bb35d20da11a334d9c9593a8fd1e966a49c84cc67e303a830db217","category":"description","schemaVersion":"trip_plan_v3","policy":{"quality":"balanced","allowFallback":true,"maxLatencyMs":650},"plan":["anthropic","openai"],"chosen":"anthropic","failoverCount":0,"traceId":"bd8670ab-ab3d-4927-9438-1c557eff99e0"}
+[INTEL] {"event":"router_attempt_failed","taskId":"dcad8fc4f9bb35d20da11a334d9c9593a8fd1e966a49c84cc67e303a830db217","category":"description","schemaVersion":"trip_plan_v3","chosen":"anthropic","traceId":"bd8670ab-ab3d-4927-9438-1c557eff99e0","code":"E_PROVIDER_DISABLED","retryable":false,"httpStatus":503,"modelId":"disabled"}
+[INTEL] {"event":"router_attempt","taskId":"02eca40b254548a2e90db3efb9c20ca7bff7abe9433dd6993ee56adac89656eb","category":"judge","schemaVersion":"judge_plan_v1","policy":{"quality":"fast","allowFallback":false,"maxLatencyMs":300},"plan":["openai"],"chosen":"openai","failoverCount":0,"traceId":"0a82f25c-ef71-4d7c-ba48-e5a171ef08da"}
+[INTEL] {"event":"router_attempt_failed","taskId":"02eca40b254548a2e90db3efb9c20ca7bff7abe9433dd6993ee56adac89656eb","category":"judge","schemaVersion":"judge_plan_v1","chosen":"openai","traceId":"0a82f25c-ef71-4d7c-ba48-e5a171ef08da","code":"E_RATE_LIMITED","retryable":true,"httpStatus":429,"modelId":"m1"}
+✔ router chooses correct provider order by category (1.479ms)
+✔ fallback triggers only on retryable errors (2.05225ms)
+✔ non-retryable errors do not fallback (0.368125ms)
+✔ anthropic disabled returns E_PROVIDER_DISABLED (0.677625ms)
+✔ allowFallback=false for judge uses primary only (0.380083ms)
+[telemetry] {"eventName":"INTELLIGENCE_ROUTER_SELECTED","timestamp":"2026-02-28T08:16:32.380Z","requestId":"r1","providerId":"openai","modelId":"gpt","latencyMs":10,"tokensIn":20,"tokensOut":30,"costEstimateUsd":0.001}
+[telemetry] {"eventName":"PLAN_GENERATED","timestamp":"2026-02-28T08:16:32.381Z","requestId":"r1","segment_count":0,"fallback_count":0}
+[telemetry] {"eventName":"judge_passed","timestamp":"2026-02-28T08:16:32.382Z","taskId":"b0a291aacf7084977a8cf67703fca620ec567ab43b8bbd3f7527e0386ed5f303","traceId":"trace-judge","producerProviderId":"openai","judgeProviderId":"gemini","remainingBudgetMs":1000}
+[telemetry] {"eventName":"enrichment_skipped","timestamp":"2026-02-28T08:16:32.382Z","traceId":"trace-judge","producerProviderId":"openai","remainingBudgetMs":1000,"stopsTotal":1,"reason":"disabled"}
+[telemetry] {"eventName":"INTELLIGENCE_ROUTER_SELECTED","timestamp":"2026-02-28T08:16:32.382Z","requestId":"rw1","providerId":"openai","modelId":"gpt","latencyMs":10,"tokensIn":20,"tokensOut":30,"costEstimateUsd":0.001}
+[telemetry] {"eventName":"PLAN_GENERATED","timestamp":"2026-02-28T08:16:32.382Z","requestId":"rw1","segment_count":0,"fallback_count":0}
+[telemetry] {"eventName":"judge_passed","timestamp":"2026-02-28T08:16:32.382Z","taskId":"5559c743a4fcab194d628cbe265e3fcb0c3e0bd198f9bc7ea9f1510593321d7b","traceId":"trace-judge","producerProviderId":"openai","judgeProviderId":"anthropic","remainingBudgetMs":1200}
+[telemetry] {"eventName":"enrichment_skipped","timestamp":"2026-02-28T08:16:32.382Z","traceId":"trace-judge","producerProviderId":"openai","remainingBudgetMs":1200,"stopsTotal":1,"reason":"disabled"}
+[telemetry] {"eventName":"INTELLIGENCE_ROUTER_SELECTED","timestamp":"2026-02-28T08:16:32.383Z","requestId":"r2","providerId":"openai","modelId":"gpt","latencyMs":10,"tokensIn":20,"tokensOut":30,"costEstimateUsd":0.001}
+[telemetry] {"eventName":"PLAN_GENERATED","timestamp":"2026-02-28T08:16:32.383Z","requestId":"r2","segment_count":0,"fallback_count":0}
+[telemetry] {"eventName":"judge_failed","timestamp":"2026-02-28T08:16:32.383Z","taskId":"4f5b758c9c487078ab33ccf3603f53b584e49ab6416f98c87c09ff3b8740f219","traceId":"trace-judge","producerProviderId":"openai","judgeProviderId":"anthropic","remainingBudgetMs":1200}
+[telemetry] {"eventName":"repair_triggered","timestamp":"2026-02-28T08:16:32.383Z","taskId":"4f5b758c9c487078ab33ccf3603f53b584e49ab6416f98c87c09ff3b8740f219","traceId":"trace-judge","producerProviderId":"openai","judgeProviderId":"anthropic","remainingBudgetMs":1200}
+[telemetry] {"eventName":"INTELLIGENCE_ROUTER_SELECTED","timestamp":"2026-02-28T08:16:32.383Z","requestId":"r2","providerId":"gemini","modelId":"gemini-route","latencyMs":10,"tokensIn":20,"tokensOut":30,"costEstimateUsd":0.001}
+[telemetry] {"eventName":"PLAN_GENERATED","timestamp":"2026-02-28T08:16:32.383Z","requestId":"r2","segment_count":0,"fallback_count":0}
+[telemetry] {"eventName":"repair_success","timestamp":"2026-02-28T08:16:32.383Z","taskId":"4f5b758c9c487078ab33ccf3603f53b584e49ab6416f98c87c09ff3b8740f219","traceId":"trace-judge","producerProviderId":"gemini","judgeProviderId":"openai","remainingBudgetMs":1200}
+[telemetry] {"eventName":"enrichment_skipped","timestamp":"2026-02-28T08:16:32.383Z","traceId":"trace-judge","producerProviderId":"gemini","remainingBudgetMs":1200,"stopsTotal":1,"reason":"disabled"}
+[telemetry] {"eventName":"INTELLIGENCE_ROUTER_SELECTED","timestamp":"2026-02-28T08:16:32.383Z","requestId":"rsw1","providerId":"openai","modelId":"gpt","latencyMs":10,"tokensIn":20,"tokensOut":30,"costEstimateUsd":0.001}
+[telemetry] {"eventName":"PLAN_GENERATED","timestamp":"2026-02-28T08:16:32.383Z","requestId":"rsw1","segment_count":0,"fallback_count":0}
+[telemetry] {"eventName":"judge_failed","timestamp":"2026-02-28T08:16:32.384Z","taskId":"01bfc20ad16e6db8bcee831071d3eb43999f302075b6acef72d2d8f0b1f8edb2","traceId":"trace-judge","producerProviderId":"openai","judgeProviderId":"anthropic","remainingBudgetMs":1200}
+[telemetry] {"eventName":"repair_triggered","timestamp":"2026-02-28T08:16:32.384Z","taskId":"01bfc20ad16e6db8bcee831071d3eb43999f302075b6acef72d2d8f0b1f8edb2","traceId":"trace-judge","producerProviderId":"openai","judgeProviderId":"anthropic","remainingBudgetMs":1200}
+[telemetry] {"eventName":"INTELLIGENCE_ROUTER_SELECTED","timestamp":"2026-02-28T08:16:32.384Z","requestId":"rsw1","providerId":"gemini","modelId":"gemini-route","latencyMs":10,"tokensIn":20,"tokensOut":30,"costEstimateUsd":0.001}
+[telemetry] {"eventName":"PLAN_GENERATED","timestamp":"2026-02-28T08:16:32.384Z","requestId":"rsw1","segment_count":0,"fallback_count":0}
+[telemetry] {"eventName":"repair_success","timestamp":"2026-02-28T08:16:32.384Z","taskId":"01bfc20ad16e6db8bcee831071d3eb43999f302075b6acef72d2d8f0b1f8edb2","traceId":"trace-judge","producerProviderId":"gemini","judgeProviderId":"openai","remainingBudgetMs":1200}
+[telemetry] {"eventName":"enrichment_skipped","timestamp":"2026-02-28T08:16:32.384Z","traceId":"trace-judge","producerProviderId":"gemini","remainingBudgetMs":1200,"stopsTotal":1,"reason":"disabled"}
+[telemetry] {"eventName":"INTELLIGENCE_ROUTER_SELECTED","timestamp":"2026-02-28T08:16:32.384Z","requestId":"rs1","providerId":"openai","modelId":"gpt","latencyMs":10,"tokensIn":20,"tokensOut":30,"costEstimateUsd":0.001}
+[telemetry] {"eventName":"PLAN_GENERATED","timestamp":"2026-02-28T08:16:32.384Z","requestId":"rs1","segment_count":0,"fallback_count":0}
+[telemetry] {"eventName":"judge_failed","timestamp":"2026-02-28T08:16:32.384Z","taskId":"f0ad5856604261cbad58420cdbab87700376446a5b019cd231595854cdb41aba","traceId":"trace-judge","producerProviderId":"openai","judgeProviderId":"anthropic","remainingBudgetMs":1200}
+[telemetry] {"eventName":"repair_triggered","timestamp":"2026-02-28T08:16:32.384Z","taskId":"f0ad5856604261cbad58420cdbab87700376446a5b019cd231595854cdb41aba","traceId":"trace-judge","producerProviderId":"openai","judgeProviderId":"anthropic","remainingBudgetMs":1200}
+[telemetry] {"eventName":"INTELLIGENCE_ROUTER_SELECTED","timestamp":"2026-02-28T08:16:32.384Z","requestId":"rs1","providerId":"gemini","modelId":"gemini-route","latencyMs":10,"tokensIn":20,"tokensOut":30,"costEstimateUsd":0.001}
+[telemetry] {"eventName":"PLAN_GENERATED","timestamp":"2026-02-28T08:16:32.384Z","requestId":"rs1","segment_count":0,"fallback_count":0}
+[telemetry] {"eventName":"repair_success","timestamp":"2026-02-28T08:16:32.385Z","taskId":"f0ad5856604261cbad58420cdbab87700376446a5b019cd231595854cdb41aba","traceId":"trace-judge","producerProviderId":"gemini","judgeProviderId":"openai","remainingBudgetMs":1200}
+[telemetry] {"eventName":"enrichment_skipped","timestamp":"2026-02-28T08:16:32.385Z","traceId":"trace-judge","producerProviderId":"gemini","remainingBudgetMs":1200,"stopsTotal":1,"reason":"disabled"}
+[telemetry] {"eventName":"INTELLIGENCE_ROUTER_SELECTED","timestamp":"2026-02-28T08:16:32.385Z","requestId":"r3","providerId":"openai","modelId":"gpt","latencyMs":10,"tokensIn":20,"tokensOut":30,"costEstimateUsd":0.001}
+[telemetry] {"eventName":"PLAN_GENERATED","timestamp":"2026-02-28T08:16:32.385Z","requestId":"r3","segment_count":0,"fallback_count":0}
+[telemetry] {"eventName":"judge_failed","timestamp":"2026-02-28T08:16:32.385Z","taskId":"e4aebbac35e2ef7245df7ef943f31a1ab54430d8de3e4812024b5032ca641587","traceId":"trace-judge","producerProviderId":"openai","judgeProviderId":"anthropic","remainingBudgetMs":1200}
+[telemetry] {"eventName":"repair_triggered","timestamp":"2026-02-28T08:16:32.385Z","taskId":"e4aebbac35e2ef7245df7ef943f31a1ab54430d8de3e4812024b5032ca641587","traceId":"trace-judge","producerProviderId":"openai","judgeProviderId":"anthropic","remainingBudgetMs":1200}
+[telemetry] {"eventName":"INTELLIGENCE_ROUTER_SELECTED","timestamp":"2026-02-28T08:16:32.385Z","requestId":"r3","providerId":"gemini","modelId":"gemini-route","latencyMs":10,"tokensIn":20,"tokensOut":30,"costEstimateUsd":0.001}
+[telemetry] {"eventName":"PLAN_GENERATED","timestamp":"2026-02-28T08:16:32.385Z","requestId":"r3","segment_count":0,"fallback_count":0}
+[telemetry] {"eventName":"repair_exhausted","timestamp":"2026-02-28T08:16:32.385Z","taskId":"e4aebbac35e2ef7245df7ef943f31a1ab54430d8de3e4812024b5032ca641587","traceId":"trace-judge","producerProviderId":"gemini","judgeProviderId":"anthropic","remainingBudgetMs":1200}
+[telemetry] {"eventName":"INTELLIGENCE_ROUTER_SELECTED","timestamp":"2026-02-28T08:16:32.385Z","requestId":"r4","providerId":"openai","modelId":"gpt","latencyMs":10,"tokensIn":20,"tokensOut":30,"costEstimateUsd":0.001}
+[telemetry] {"eventName":"PLAN_GENERATED","timestamp":"2026-02-28T08:16:32.386Z","requestId":"r4","segment_count":0,"fallback_count":0}
+[telemetry] {"eventName":"INTELLIGENCE_ROUTER_SELECTED","timestamp":"2026-02-28T08:16:32.386Z","requestId":"r5","providerId":"openai","modelId":"gpt","latencyMs":10,"tokensIn":20,"tokensOut":30,"costEstimateUsd":0.001}
+[telemetry] {"eventName":"PLAN_GENERATED","timestamp":"2026-02-28T08:16:32.386Z","requestId":"r5","segment_count":0,"fallback_count":0}
+[telemetry] {"eventName":"judge_skipped","timestamp":"2026-02-28T08:16:32.386Z","taskId":"n/a","traceId":"trace-judge","producerProviderId":"openai","judgeProviderId":"none","remainingBudgetMs":150,"reason":"budget"}
+[telemetry] {"eventName":"enrichment_skipped","timestamp":"2026-02-28T08:16:32.386Z","traceId":"trace-judge","producerProviderId":"openai","remainingBudgetMs":150,"stopsTotal":1,"reason":"disabled"}
+[telemetry] {"eventName":"INTELLIGENCE_ROUTER_SELECTED","timestamp":"2026-02-28T08:16:32.386Z","requestId":"rb1","providerId":"openai","modelId":"gpt","latencyMs":10,"tokensIn":20,"tokensOut":30,"costEstimateUsd":0.001}
+[telemetry] {"eventName":"PLAN_GENERATED","timestamp":"2026-02-28T08:16:32.386Z","requestId":"rb1","segment_count":0,"fallback_count":0}
+[telemetry] {"eventName":"judge_passed","timestamp":"2026-02-28T08:16:32.386Z","taskId":"ddab31f4e09224066541972eb68b36dc9a7bac301add81d9db1d0a5342d7f986","traceId":"trace-judge","producerProviderId":"openai","judgeProviderId":"gemini","remainingBudgetMs":320}
+[telemetry] {"eventName":"enrichment_skipped","timestamp":"2026-02-28T08:16:32.386Z","traceId":"trace-judge","producerProviderId":"openai","remainingBudgetMs":320,"stopsTotal":1,"reason":"disabled"}
+✔ judge enabled -> valid -> no repair (3.160583ms)
+✔ LENIENT: warns only -> no repair, warning meta populated (0.499917ms)
+✔ LENIENT: error -> repair triggered; if repair ok => success (0.700958ms)
+✔ STRICT: warns only -> repair triggered; still warns => success with strict warnings (0.766458ms)
+✔ STRICT: error -> repair triggered; if resolved => success (0.601125ms)
+✔ judge invalid -> repair invalid -> E_VALIDATION_FAILED (0.708ms)
+✔ judge schema invalid -> E_SCHEMA_INVALID (0.295166ms)
+✔ budget skip (<200ms) returns plan + meta.judge_skipped (0.155708ms)
+✔ budget accounting: judge task budget never exceeds remaining (0.215917ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 768.090667

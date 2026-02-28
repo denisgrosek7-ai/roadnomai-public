@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://roadnomai/schemas/rfc-001/v1/HandshakeManifest.schema.json",
+  "title": "RFC-001 HandshakeManifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol_version",
+    "min_client_version",
+    "epoch",
+    "active_categories",
+    "category_schema_versions",
+    "category_capabilities",
+    "generated_at"
+  ],
+  "properties": {
+    "protocol_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "min_client_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:-[0-9A-Za-z.-]+)?(?:\\+[0-9A-Za-z.-]+)?$"
+    },
+    "epoch": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "active_categories": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "category_schema_versions": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "category_capabilities": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "mode",
+          "visibility"
+        ],
+        "properties": {
+          "mode": {
+            "type": "string",
+            "enum": [
+              "read_only",
+              "read_write",
+              "disabled"
+            ]
+          },
+          "shareable": {
+            "type": "boolean"
+          },
+          "visibility": {
+            "type": "string",
+            "enum": [
+              "menu",
+              "archive_only",
+              "hidden"
+            ]
+          }
+        }
+      }
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|\\+00:00)$"
+    },
+    "manifest_sig": {
+      "type": "string"
+    }
+  }
+}

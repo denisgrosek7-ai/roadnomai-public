@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://roadnomai/schemas/rfc-001/v1/ErrorEnvelope.schema.json",
+  "title": "RFC-001 ErrorEnvelope v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "ok",
+    "trace_id",
+    "error"
+  ],
+  "properties": {
+    "ok": {
+      "const": false
+    },
+    "trace_id": {
+      "type": "string",
+      "minLength": 8
+    },
+    "error": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "retryable",
+        "http_status"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "enum": [
+            "E_PROTOCOL_INCOMPATIBLE",
+            "E_MIN_VERSION",
+            "E_CAPABILITY_DENIED",
+            "E_SCHEMA_MISMATCH",
+            "E_PLUGIN_TIMEOUT",
+            "E_PROVIDER_TIMEOUT",
+            "E_RATE_LIMITED",
+            "E_DEGRADED_MODE",
+            "E_SCHEMA_INVALID",
+            "E_PROVIDER_DISABLED",
+            "E_VALIDATION_FAILED",
+            "E_INTERNAL"
+          ]
+        },
+        "retryable": {
+          "type": "boolean"
+        },
+        "http_status": {
+          "type": "integer",
+          "minimum": 400,
+          "maximum": 599
+        },
+        "hint": {
+          "type": "string",
+          "maxLength": 200
+        },
+        "details": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}

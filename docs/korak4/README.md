@@ -45,13 +45,3 @@ Search bar A uporablja naslednje pravilo:
 
 Konfliktno pravilo je `single wins`:
 če je izbranih več mixable kategorij in uporabnik klikne single kategorijo, ostane izbrana samo ta single kategorija.
-
-## Search A Category Specs
-
-Search A category preferences so zdaj spec-driven:
-- `lib/home/search_a_categories_spec.dart`
-- `lib/home/search_a_category_preferences_screen.dart`
-- `lib/home/search_a_preferences_mapper.dart`
-
-To omogoča, da nove kategorije dodaš z novo spec postavko, brez divergentne UI logike.
-Surprise Me flow ostane nespremenjen.

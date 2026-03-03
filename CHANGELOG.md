@@ -1,5 +1,12 @@
 # Changelog
 
+## VAL 7.5 — Context Stability Validation
+
+- Added deterministic KPI isolation for weather context overhead measurement.
+- Healthy KPI gate: mock/cache-only weather path, PASS when `p95DeltaMs < 100` and `errorRate < 1%`.
+- Degraded KPI gate: forced timeout + breaker short-circuit, PASS on post-warmup budget.
+- Added audit artifacts for healthy and degraded KPI reports.
+
 ## Korak 4 – Nearby Explore & Launch Hygiene
 
 - Added `nearby_explore_v1` and `review_mock_mode` feature flags (default OFF).

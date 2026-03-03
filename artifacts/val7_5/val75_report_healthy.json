@@ -1,0 +1,101 @@
+{
+  "version": "val7.5",
+  "generatedAt": "2026-03-01T07:49:23.131Z",
+  "config": {
+    "mode": "synthetic",
+    "kpiType": "healthy",
+    "weatherMode": "mock",
+    "baseUrl": "http://localhost:8787",
+    "rps": 50,
+    "durationMs": 5000,
+    "warmupMs": 1000,
+    "syntheticDelayMs": 200
+  },
+  "baseline": {
+    "phase": "baseline",
+    "metrics": {
+      "total": 244,
+      "success": 244,
+      "errors": 0,
+      "errorRatePct": 0,
+      "p50Ms": 203,
+      "p95Ms": 205,
+      "warmupMs": 1000,
+      "postWarmup": {
+        "p50Ms": 203,
+        "p95Ms": 205,
+        "samples": 206
+      },
+      "statusCounts": {
+        "200": 244
+      },
+      "weatherSources": {
+        "none": 244
+      },
+      "topWeatherGrids": {
+        "46.1,14.5": 122,
+        "46.7,14.2": 10,
+        "46.9,14.4": 10,
+        "46.8,14.3": 8,
+        "47.0,14.5": 8
+      }
+    },
+    "telemetry": {
+      "context_resolved": 244,
+      "weather_cache_hit": 0,
+      "weather_provider_timeout": 0,
+      "weather_circuit_open": 0,
+      "weather_circuit_open_shortcircuit": 0
+    }
+  },
+  "weather": {
+    "phase": "weather",
+    "metrics": {
+      "total": 243,
+      "success": 243,
+      "errors": 0,
+      "errorRatePct": 0,
+      "p50Ms": 203,
+      "p95Ms": 205,
+      "warmupMs": 1000,
+      "postWarmup": {
+        "p50Ms": 203,
+        "p95Ms": 205,
+        "samples": 205
+      },
+      "statusCounts": {
+        "200": 243
+      },
+      "weatherSources": {
+        "google": 243
+      },
+      "topWeatherGrids": {
+        "46.1,14.5": 122,
+        "46.7,14.2": 10,
+        "46.9,14.4": 10,
+        "46.8,14.3": 8,
+        "47.0,14.5": 8
+      }
+    },
+    "telemetry": {
+      "context_resolved": 243,
+      "weather_cache_hit": 0,
+      "weather_provider_timeout": 0,
+      "weather_circuit_open": 0,
+      "weather_circuit_open_shortcircuit": 0
+    }
+  },
+  "verdict": {
+    "pass": true,
+    "criteria": {
+      "kpiType": "healthy",
+      "p95LimitMs": 100,
+      "baselineP95Ms": 205,
+      "weatherP95Ms": 205,
+      "p95DeltaMs": 0,
+      "p95DeltaPass": true,
+      "errorRatePct": 0,
+      "errorRatePass": true
+    }
+  }
+}

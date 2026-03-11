@@ -1,5 +1,14 @@
 # Changelog
 
+## VAL 8.0 — Production Hardening and Observability
+
+- Added shared generation memory with global inventory reuse and per-user/per-device anti-repeat history.
+- Added Postgres-backed persistence for generation inventory and history, with file-store fallback retained for local development paths.
+- Added Redis-backed cache and coordination helpers with safe degraded fallback behavior.
+- Added readiness semantics that distinguish Postgres hard failure from Redis degraded mode.
+- Added Prometheus metrics, alert rules, Grafana provisioning, and dashboard definitions for business savings, infra health, and app reliability.
+- Added multi-instance verification tooling and observability docs for local operational drills.
+
 ## VAL 7.5 — Context Stability Validation
 
 - Added deterministic KPI isolation for weather context overhead measurement.

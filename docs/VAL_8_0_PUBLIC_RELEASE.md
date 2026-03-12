@@ -118,14 +118,53 @@ This PR introduces the VAL 8.0 backend hardening and observability layer.
 - shared generation memory with Postgres and file adapters
 - Redis-backed cache and coordination helpers
 - readiness semantics for Postgres-required / Redis-optional operation
+- optimistic locking for canonical Replace mutations
 - Prometheus metrics, Grafana provisioning, and alert rules
 - multi-instance verification tooling and focused backend tests
+- replace race verification against the real refresh contract
 
 ## Operational impact
 
 - enables safer multi-instance backend operation
 - reduces avoidable regeneration through shared reuse paths
-- improves observability for degraded mode, readiness, and reuse behavior
+- improves observability for degraded mode, readiness, replace conflicts, and reuse behavior
+```
+
+## Suggested Public PR Comment
+
+```md
+## Summary
+
+This PR hardens the RoadNomai backend for shared-state, multi-instance operation and improves operational visibility around generation, reuse, readiness, and Replace mutations.
+
+## Included
+
+- shared generation memory with Postgres-backed persistence
+- Redis-assisted cache and coordination with degraded-mode safety
+- optimistic locking for canonical Replace mutations
+- readiness semantics for Postgres-required / Redis-optional operation
+- Prometheus metrics, Grafana provisioning, and verification tooling
+
+## Validation
+
+- sustained-load validation completed successfully
+- Redis degraded validation completed without backend crashes
+- Replace optimistic-locking verification now covers stale-version and race scenarios through the real refresh contract
+```
+
+## Suggested Short PR Comment
+
+```md
+## Validation Summary
+
+- Sustained-load validation completed successfully.
+- Reuse and recomposition handled most successful generate requests.
+- Modeled savings increased during the run.
+- Redis was taken down and restored during live traffic without restarting backend instances.
+- Readiness correctly switched to degraded mode during outage and recovered afterward.
+- Generate and reuse traffic continued through Postgres-backed paths.
+- Replace optimistic-locking verification covers stale-version and concurrent refresh races.
+- A small number of `429` responses were observed under degraded load and are consistent with existing rate limiting.
 ```
 
 ## Suggested Short PR Comment

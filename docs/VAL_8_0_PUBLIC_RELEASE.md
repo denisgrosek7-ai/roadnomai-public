@@ -180,3 +180,18 @@ This PR hardens the RoadNomai backend for shared-state, multi-instance operation
 - Generate and reuse traffic continued through Postgres-backed paths.
 - A small number of `429` responses were observed under degraded load and are consistent with existing rate limiting.
 ```
+
+## Suggested Clean Soak Comment
+
+```md
+Clean 4h soak run `20260313T115816Z` passed end-to-end.
+
+- `14376/14376` requests succeeded
+- `0` errors
+- `0` rate-limit interference
+- readiness and persistence stayed healthy
+- memory artifacts were captured cleanly
+- Replace optimistic locking remained correct across preflight verification
+- Gemini 404 details-path bug stayed fixed across the full run
+- reuse dominated: `14369` `full_plan_reuse`, `7` `fresh_generate`
+```

@@ -1,70 +1,127 @@
-# roadnomai.app
+# RoadNomai
 
-RoadNomai is a trip-planning platform with a Flutter client and a backend that coordinates plan generation, destination enrichment, transfer hints, caching, and operational observability.
+RoadNomai is a modular travel platform designed to support **white-label**, **B2B**, and **B2C** product models from a shared core.
 
-## VAL 8.0: Production Hardening and Observability
+## Overview
 
-VAL 8.0 moves the backend stack from a local file-oriented prototype model toward a multi-instance architecture with shared persistence, bounded degradation behavior, and first-class monitoring.
+RoadNomai is built as a shared platform foundation for travel planning and related partner-facing experiences.
 
-### Highlights
+The platform is intended to support:
 
-#### Generation memory and anti-repeat
+- **white-label deployments** for agencies and partners
+- **B2B partner-aware product models**
+- **B2C branded product experiences**
+- modular client and backend surfaces built on a common core
+- configurable branding, routing, and platform posture
+- observability and verification-oriented engineering workflows
 
-- Added shared generation memory with:
-  - global inventory reuse for compatible trip criteria
-  - per-user and per-device anti-repeat history
-- Reuse decisions now distinguish between:
-  - `full_plan_reuse`
-  - `destination_pool_recompose`
-  - `fresh_generate`
-- Metrics expose lookup volume, reuse ratios, novelty signals, and modeled cost-avoidance counters.
+This public repository focuses on the **public-safe platform view**:
+architecture, schemas, platform concepts, and selected documentation.
 
-#### Postgres plus Redis runtime model
+Sensitive production details, partner-specific configuration, operational runbooks, and internal verification artifacts remain private.
 
-- Postgres is the durable source of truth for generation inventory and user history.
-- Redis remains optional and is used for cache and coordination acceleration.
-- When Redis is unavailable, the backend degrades safely and continues operating via Postgres-backed paths.
-- Readiness now distinguishes between:
-  - Postgres hard failure
-  - Redis degraded-but-available service state
+---
 
-#### Observability as code
+## What RoadNomai Supports
 
-- Added `/metrics` Prometheus exposition for generation, infra, replace, readiness, and LLM pipeline behavior.
-- Added:
-  - Prometheus scrape configuration
-  - alert rules
-  - Grafana datasource provisioning
-  - Grafana dashboards for business savings, infra health, and app reliability
+### White-label
 
-### What this release improves
+RoadNomai is designed to support partner-branded deployments from a shared platform core, with configurable branding, routing posture, and feature exposure.
 
-| Area | Status | Summary |
-| --- | --- | --- |
-| Trip generation | `hardened` | stronger orchestration, metrics, and shared-state reuse paths |
-| Replace flow | `bounded` | explicit exhaustion path and safer failure handling |
-| Generation memory | `active` | shared inventory, anti-repeat history, Postgres and file adapters |
-| Readiness | `hardened` | `POSTGRES_UNAVAILABLE` vs `REDIS_DEGRADED` semantics |
-| Observability | `active` | dashboards, alerts, metrics, and verification commands |
+### B2B
 
-Sensitive provider keys are backend-only.
+The platform supports a partner-aware model for agency and integration-oriented use cases, where one core can serve multiple deployment contexts through controlled configuration.
 
-## Platform Concepts
+### B2C
 
-### Handshake manifest
+The same platform foundation can also support direct branded consumer-facing flows without splitting the product into separate codebases.
 
-RoadNomai uses a backend-driven manifest model to coordinate app compatibility, cache invalidation, and category availability. The public-facing concept is stable: the backend can signal minimum supported versions, recommended upgrades, and category-level feature availability without shipping client secrets.
+---
 
-### Plugin sandboxing
+## Platform Model
 
-Category plugins are treated as sandboxed client extension points. The public contract is that plugins stay isolated from direct network and secret-bearing backend integrations, with enforcement handled through repository tooling and linting.
+At a high level, RoadNomai is structured around:
+
+- a **shared product core**
+- a **partner-aware / tenant-aware configuration layer**
+- modular product surfaces for planning, trip handling, and related flows
+- configurable branding and theming
+- public-safe schemas and platform contracts
+- observability and verification discipline
+
+The public-facing architecture goal is simple:
+
+**one platform core, multiple product directions.**
+
+---
+
+## Repository Scope
+
+This public repository includes:
+
+- public-safe documentation
+- platform and architecture overviews
+- selected schemas and public-facing contracts
+- sanitized product and engineering documentation
+- contributor-facing setup material where appropriate
+
+This public repository intentionally does **not** include:
+
+- partner-specific configuration
+- production deployment internals
+- sensitive provider or billing logic
+- support/control-plane internals
+- internal alert routing
+- incident playbooks or escalation procedures
+- internal runtime/debug evidence
+- private operational governance artifacts
+
+---
 
 ## Documentation Map
 
-- Public release notes: [docs/VAL_8_0_PUBLIC_RELEASE.md](/Users/denisgrosek/RoadNomai/docs/VAL_8_0_PUBLIC_RELEASE.md)
-- Contributor setup and engineering docs: [docs/DEVELOPER_GUIDE.md](/Users/denisgrosek/RoadNomai/docs/DEVELOPER_GUIDE.md)
-- Backend observability reference: [backend/docs/observability.md](/Users/denisgrosek/RoadNomai/backend/docs/observability.md)
+### Core public docs
+
+- [`docs/platform-overview.md`](docs/platform-overview.md)
+- [`docs/architecture-overview.md`](docs/architecture-overview.md)
+- [`docs/white-label-overview.md`](docs/white-label-overview.md)
+- [`docs/b2b-overview.md`](docs/b2b-overview.md)
+- [`docs/b2c-overview.md`](docs/b2c-overview.md)
+- [`docs/feature-matrix.md`](docs/feature-matrix.md)
+- [`docs/public-status.md`](docs/public-status.md)
+- [`docs/deployment-boundaries.md`](docs/deployment-boundaries.md)
+
+### Public technical references
+
+- [`docs/DEVELOPER_GUIDE.md`](docs/DEVELOPER_GUIDE.md)
+- [`backend/docs/observability.md`](backend/docs/observability.md)
+
+### Release-oriented public notes
+
+- [`docs/VAL_8_0_PUBLIC_RELEASE.md`](docs/VAL_8_0_PUBLIC_RELEASE.md)
+
+---
+
+## Current Public Position
+
+RoadNomai should be understood publicly as:
+
+- a **shared platform core**
+- a **white-label-capable architecture**
+- a **B2B/B2C-capable product foundation**
+- a system with a strong emphasis on **modularity**, **configurability**, and **verification discipline**
+
+The public repository is meant to communicate platform direction and public-safe engineering concepts, not to expose sensitive production internals.
+
+---
 
 ## Getting Started
 
-Product overview and release notes live in this README. Local development, monitoring bootstrap, manifest details, and contributor workflows are documented in the developer guide.
+Use this repository as a public-facing reference for:
+
+- platform structure
+- high-level architecture
+- public-safe concepts and schemas
+- contributor-facing engineering context
+
+If you are looking for partner provisioning, production operations, private integrations, or internal runtime/debug workflows, those remain intentionally outside the public scope.

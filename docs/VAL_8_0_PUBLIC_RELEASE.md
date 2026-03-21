@@ -167,20 +167,6 @@ This PR hardens the RoadNomai backend for shared-state, multi-instance operation
 - A small number of `429` responses were observed under degraded load and are consistent with existing rate limiting.
 ```
 
-## Suggested Short PR Comment
-
-```md
-## Validation Summary
-
-- Sustained-load validation completed successfully.
-- Reuse and recomposition handled most successful generate requests.
-- Modeled savings increased during the run.
-- Redis was taken down and restored during live traffic without restarting backend instances.
-- Readiness correctly switched to degraded mode during outage and recovered afterward.
-- Generate and reuse traffic continued through Postgres-backed paths.
-- A small number of `429` responses were observed under degraded load and are consistent with existing rate limiting.
-```
-
 ## Suggested Clean Soak Comment
 
 ```md

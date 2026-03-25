@@ -1,10 +1,18 @@
 # RoadNomai
 
-RoadNomai is a modular travel platform designed to support **white-label**, **B2B**, and **B2C** product models from a shared core.
+RoadNomai is an AI-powered travel planning platform that creates complete, multi-destination itineraries in seconds.
+
+Users define the number of travel days, choose one or more countries, and select how many destinations they want to visit. Based on these preferences, RoadNomai generates an optimized travel route with destination flow, estimated travel times, distances between destinations, and relevant transport connections, including flights and ferry routes for island travel.
+
+The platform is designed to make trip planning faster, easier, and more flexible. If a destination does not fit the traveler’s preferences or has already been visited, it can be replaced with a suitable alternative without breaking the overall route logic.
+
+RoadNomai also helps structure the stay across each stop by automatically distributing the trip based on the total number of days and selected destinations. With the **Explore Nearby** feature, users can discover local highlights around each destination, including cultural, historical, culinary, and other points of interest.
+
+Built as a flexible platform for **white-label**, **B2B**, and **B2C** use cases, RoadNomai is suitable for individual travelers, travel agencies, and travel-focused businesses that want to offer smart, automated itinerary creation with minimal manual planning.
 
 ## Overview
 
-RoadNomai is built as a shared platform foundation for travel planning and related partner-facing experiences.
+RoadNomai is built as a modular travel platform with a shared core that supports intelligent trip planning and partner-facing travel experiences.
 
 The platform is intended to support:
 
@@ -12,116 +20,65 @@ The platform is intended to support:
 - **B2B partner-aware product models**
 - **B2C branded product experiences**
 - modular client and backend surfaces built on a common core
-- configurable branding, routing, and platform posture
-- observability and verification-oriented engineering workflows
+- configurable branding, routing, and platform structure
+- scalable and flexible itinerary generation workflows
 
-This public repository focuses on the **public-safe platform view**:
-architecture, schemas, platform concepts, and selected documentation.
-
-Sensitive production details, partner-specific configuration, operational runbooks, and internal verification artifacts remain private.
-
----
-
-## What RoadNomai Supports
-
-### White-label
-
-RoadNomai is designed to support partner-branded deployments from a shared platform core, with configurable branding, routing posture, and feature exposure.
-
-### B2B
-
-The platform supports a partner-aware model for agency and integration-oriented use cases, where one core can serve multiple deployment contexts through controlled configuration.
-
-### B2C
-
-The same platform foundation can also support direct branded consumer-facing flows without splitting the product into separate codebases.
-
----
-
-## Platform Model
-
-At a high level, RoadNomai is structured around:
+At a high level, RoadNomai is designed around:
 
 - a **shared product core**
 - a **partner-aware / tenant-aware configuration layer**
-- modular product surfaces for planning, trip handling, and related flows
+- modular product surfaces for planning and trip-related flows
 - configurable branding and theming
-- public-safe schemas and platform contracts
-- observability and verification discipline
+- public-safe schemas and platform concepts
 
-The public-facing architecture goal is simple:
+**One platform core, multiple product directions.**
 
-**one platform core, multiple product directions.**
+## Core Capabilities
 
----
+- AI-assisted itinerary generation
+- Multi-country and multi-destination trip planning
+- Optimized travel routes based on user preferences
+- Flight and ferry connection support
+- Travel time and distance calculation between destinations
+- Flexible destination replacement without disrupting route flow
+- Automatic stay distribution across the itinerary
+- **Explore Nearby** recommendations for each destination
+- White-label, B2B, and B2C platform support
+
+## Who It Is For
+
+RoadNomai is designed for:
+
+- travelers who want a faster and easier way to plan complex trips
+- users who want inspiration without spending hours researching routes
+- travel agencies that want to build complete travel itineraries efficiently
+- businesses looking for a white-label or partner-ready travel planning solution
+
+## Current Status
+
+RoadNomai is currently **in active development**.
+
+The platform is still evolving, and some features, flows, and documentation are not yet final. This repository presents the public-facing concept, platform direction, and selected documentation as the product continues to grow.
 
 ## Repository Scope
 
-This public repository includes:
+This public repository focuses on the **public-safe platform view**, including:
 
-- public-safe documentation
 - platform and architecture overviews
-- selected schemas and public-facing contracts
-- sanitized product and engineering documentation
-- contributor-facing setup material where appropriate
+- public-safe concepts and schemas
+- selected documentation
+- contributor-facing technical context where appropriate
 
-This public repository intentionally does **not** include:
+This repository does **not** include sensitive production details such as:
 
 - partner-specific configuration
+- internal operational runbooks
+- private integrations
 - production deployment internals
-- sensitive provider or billing logic
-- support/control-plane internals
-- internal alert routing
-- incident playbooks or escalation procedures
-- internal runtime/debug evidence
-- private operational governance artifacts
+- internal debugging and runtime artifacts
 
----
+## Summary
 
-## Documentation Map
+RoadNomai is a smart travel planning platform that transforms a few user inputs into a structured, optimized, and flexible travel experience. From route generation and transport connections to stay distribution and nearby discovery, the goal is simple:
 
-### Core public docs
-
-- [`docs/platform-overview.md`](docs/platform-overview.md)
-- [`docs/architecture-overview.md`](docs/architecture-overview.md)
-- [`docs/white-label-overview.md`](docs/white-label-overview.md)
-- [`docs/b2b-overview.md`](docs/b2b-overview.md)
-- [`docs/b2c-overview.md`](docs/b2c-overview.md)
-- [`docs/feature-matrix.md`](docs/feature-matrix.md)
-- [`docs/public-status.md`](docs/public-status.md)
-- [`docs/deployment-boundaries.md`](docs/deployment-boundaries.md)
-
-### Public technical references
-
-- [`docs/DEVELOPER_GUIDE.md`](docs/DEVELOPER_GUIDE.md)
-- [`backend/docs/observability.md`](backend/docs/observability.md)
-
-### Release-oriented public notes
-
-- [`docs/VAL_8_0_PUBLIC_RELEASE.md`](docs/VAL_8_0_PUBLIC_RELEASE.md)
-
----
-
-## Current Public Position
-
-RoadNomai should be understood publicly as:
-
-- a **shared platform core**
-- a **white-label-capable architecture**
-- a **B2B/B2C-capable product foundation**
-- a system with a strong emphasis on **modularity**, **configurability**, and **verification discipline**
-
-The public repository is meant to communicate platform direction and public-safe engineering concepts, not to expose sensitive production internals.
-
----
-
-## Getting Started
-
-Use this repository as a public-facing reference for:
-
-- platform structure
-- high-level architecture
-- public-safe concepts and schemas
-- contributor-facing engineering context
-
-If you are looking for partner provisioning, production operations, private integrations, or internal runtime/debug workflows, those remain intentionally outside the public scope.
+**to make travel planning easier, faster, and more intelligent.**

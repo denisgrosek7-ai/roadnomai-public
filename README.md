@@ -59,6 +59,20 @@ RoadNomai is designed for:
 RoadNomai is currently **in active development**.
 
 The platform is still evolving, and some features, flows, and documentation are not yet final. This repository presents the public-facing concept, platform direction, and selected documentation as the product continues to grow.
+## Mobile App Status
+
+The RoadNomai mobile app is currently being developed with **Expo / React Native**.
+
+This repository also includes focused mobile restore and reopen test coverage for both **Android** and **iOS**, with attention to persisted trip state and reopen behavior.
+
+Current validation includes:
+
+- fallback reopen flow: `reopen-last-trip`
+- preferred restore flow: `/saved/[id] -> /trip`
+- persisted pointer behavior through `last_opened_trip_json`
+
+For detailed technical coverage, see:
+- [`docs/mobile-restore-coverage.md`](docs/mobile-restore-coverage.md)
 
 ## Repository Scope
 

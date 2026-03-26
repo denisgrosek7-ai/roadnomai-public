@@ -8,6 +8,19 @@
 - [x] Phase E — COMPLETE
 - [x] Phase F — COMPLETE
 
+## Additional completed follow-up
+
+### Partner-layer productization pass
+- Shared core vs partner layer vs internal/private boundaries are now explicit.
+- Manifest-first partner setup and inactive-by-default activation posture are now explicit.
+- Package and tier boundaries are now explicit.
+- Minimal partner health model and Codex governance rules now exist.
+
+Supporting artifacts:
+- [program-10_5-partner-onboarding-package.md](/Users/denisgrosek/RoadNomai/docs/program-10_5-partner-onboarding-package.md)
+- [partner-health-model.md](/Users/denisgrosek/RoadNomai/docs/partner-health-model.md)
+- [AGENTS.md](/Users/denisgrosek/RoadNomai/AGENTS.md)
+
 ## Confirmed done
 
 ### Phase A — restore fallback

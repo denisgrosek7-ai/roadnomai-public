@@ -115,6 +115,11 @@ This public repository intentionally does **not** include:
 - [`docs/program-10_5-master-status.md`](docs/program-10_5-master-status.md)
 - [`docs/phase9plus-execution-summary.md`](docs/phase9plus-execution-summary.md)
 
+### Program 10.5 partner-layer docs
+
+- [`docs/program-10_5-partner-onboarding-package.md`](docs/program-10_5-partner-onboarding-package.md)
+- [`docs/partner-health-model.md`](docs/partner-health-model.md)
+
 ---
 
 ## Current Public Position

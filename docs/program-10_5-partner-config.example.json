@@ -1,0 +1,90 @@
+{
+  "partner_manifest": {
+    "manifest_version": "phase10_5_partner_manifest_v1",
+    "partner_id": "alpine_club_partner_demo",
+    "tenant_key": "alpine_club_partner_demo",
+    "package_tier": "white_label_lite",
+    "platform_scope": "android_only",
+    "required_core_version": "phase10_5_android_shared_shell_v1",
+    "is_active": false,
+    "outbound_mode": "direct_web",
+    "provider_mode": {
+      "stay_hotel": "booking_com_direct_web",
+      "car_rental": "stub",
+      "travel_insurance": "stub",
+      "local_experiences": "stub"
+    },
+    "support_contact": "support_owner@example.com",
+    "alerting_identity": {
+      "tenant_id": "alpine_club_partner_demo",
+      "partner_label": "Alpine Club Trips",
+      "service_scope": "android_shared_shell"
+    },
+    "known_limitations_acknowledged": [
+      "android_first_package_only",
+      "ios_preferred_external_saved_link_constrained",
+      "fresh_non_dev_provenance_not_fully_runtime_backed",
+      "booking_affiliate_not_live_direct_web_only"
+    ]
+  },
+  "tenant_config": {
+    "tenant_id": "alpine_club_partner_demo",
+    "tenant_slug": "alpine-club-partner-demo",
+    "tenant_mode": "white_label",
+    "brand": {
+      "name": "Alpine Club Trips",
+      "logo_key": "alpine_club",
+      "accent": "#0E7490",
+      "theme_key": "alpine_club_v1"
+    },
+    "default_flow": "search_a",
+    "allowed_categories": [
+      "into_the_wild",
+      "snow_slopes",
+      "hidden_heritage"
+    ],
+    "allowed_features": [
+      "compare_variants",
+      "advanced_export",
+      "multi_country_planning"
+    ],
+    "feature_toggles": {
+      "headless_access": true,
+      "white_label_theme": true
+    },
+    "partner_routing": {
+      "policy_id": "alpine_partner_policy_v1",
+      "vertical_defaults": {
+        "stay_hotel": "booking_com",
+        "car_rental": "car_rental_stub",
+        "travel_insurance": "insurance_stub",
+        "local_experiences": "experiences_stub"
+      },
+      "disabled_verticals": [
+        "travel_insurance"
+      ]
+    },
+    "copy": {
+      "home_title": "Alpine Club Trips"
+    }
+  },
+  "onboarding_gate": {
+    "tenant_id": "alpine_club_partner_demo",
+    "platform_selection": "android_only",
+    "ios_caveat_acknowledged": false,
+    "chosen_category_keys": [
+      "into_the_wild",
+      "snow_slopes",
+      "hidden_heritage"
+    ],
+    "package_fit_outcome": "PASS",
+    "package_signoff_owner": "commercial_owner@example.com",
+    "technical_owner": "mobile_platform_owner@example.com",
+    "support_or_escalation_contact": "support_owner@example.com",
+    "activation_owner": "backend_platform_owner@example.com",
+    "deactivation_owner": "backend_platform_owner@example.com",
+    "activation_status": "inactive_pending_manual_registry_entry",
+    "manual_activation_step_confirmed": false,
+    "package_go_no_go_approval": "pending"
+  }
+}

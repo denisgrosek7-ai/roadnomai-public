@@ -3,6 +3,7 @@
 ## Current master status snapshot
 - The current A-F delivery snapshot now lives in `docs/program-10_5-master-status.md`.
 - Use that document as the canonical GitHub-facing status summary for what is closed, what remains partial, and what still carries explicit package or evidence boundaries.
+- The current partner-layer productization follow-up now lives in `docs/program-10_5-partner-onboarding-package.md`, `docs/partner-health-model.md`, and `AGENTS.md`.
 
 ## Scope used
 - Program 1: Phase 9.5 / Debt Burn & Evidence
@@ -13,7 +14,7 @@
 ## Input availability
 - `RoadNomai_Handoff_Phases_1_4.pdf`: not found in workspace
 - `RoadNomai_Phases_9_Plus_Canonical_Plan.pdf`: not found in workspace
-- `AGENTS.md`: not found in workspace
+- `AGENTS.md`: now present in workspace
 
 ## Repo-backed reality
 - Phase 9 tenant, premium, and hardening foundations are real and test-backed.

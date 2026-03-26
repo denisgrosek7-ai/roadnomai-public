@@ -39,8 +39,8 @@ Primary iOS runtime test:
 
 - `RoadNomaiMobileTests/testReopenLastTripFromHome`
 
-> Important:  
-> iOS fallback reopen is currently covered.  
+> Important:
+> iOS fallback reopen is currently covered.
 > The preferred `/saved/[id] -> /trip` restore path should only be treated as complete on iOS when there is explicit runtime proof for that exact flow.
 
 ## Validation Principle

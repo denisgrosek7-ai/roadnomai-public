@@ -2,9 +2,27 @@
 
 RoadNomai is a modular travel planning platform for AI-assisted itinerary generation and partner-facing travel experiences. It is designed to support **white-label**, **B2B**, and **B2C** product models from a shared core.
 
-## Overview
+## Public-safe description
 
-RoadNomai is built as a shared platform foundation for travel planning and related partner-facing experiences.
+Publicly, RoadNomai should be described narrowly as:
+
+- a shared platform core for travel planning and trip handling
+- a partner-aware configuration model rather than separate product codebases
+- a system intended to support white-label, B2B, and B2C directions from the same foundation
+- an engineering posture that emphasizes bounded scope, verification discipline, and explicit status claims
+
+This wording is the safe GitHub/public description baseline.
+It does not imply commercial proof, full automation, full cross-platform parity, or protected-boundary closure.
+
+## Repository scope
+
+This repository is the private working repository.
+It contains both public-safe platform material and internal governance/status documents.
+
+Public-facing description should stay limited to the public-safe description above.
+Internal authority, governance, and evidence-tracking documents in this repository are not public marketing copy and should not be treated as public status authority.
+
+## What RoadNomai supports
 
 The platform is intended to support:
 
@@ -15,46 +33,7 @@ The platform is intended to support:
 - configurable branding, routing, and platform posture
 - observability and verification-oriented engineering workflows
 
-The product direction includes AI-assisted itinerary generation, multi-country and multi-destination trip planning, flexible destination replacement, and nearby discovery workflows. This repository focuses on the **public-safe platform view** rather than private operational or partner-specific internals.
-
-Sensitive production details, partner-specific configuration, operational runbooks, and internal verification artifacts remain private.
-
----
-
-## What RoadNomai Supports
-
-### White-label
-
-RoadNomai is designed to support partner-branded deployments from a shared platform core, with configurable branding, routing posture, and feature exposure.
-
-### B2B
-
-The platform supports a partner-aware model for agency and integration-oriented use cases, where one core can serve multiple deployment contexts through controlled configuration.
-
-### B2C
-
-The same platform foundation can also support direct branded consumer-facing flows without splitting the product into separate codebases.
-
----
-
-## Platform Model
-
-At a high level, RoadNomai is structured around:
-
-- a **shared product core**
-- a **partner-aware / tenant-aware configuration layer**
-- modular product surfaces for planning, trip handling, and related flows
-- configurable branding and theming
-- public-safe schemas and platform contracts
-- observability and verification discipline
-
-The public-facing architecture goal is simple:
-
-**one platform core, multiple product directions.**
-
----
-
-## Core Capabilities
+Core capabilities include:
 
 - AI-assisted itinerary generation
 - multi-country and multi-destination trip planning
@@ -63,34 +42,9 @@ The public-facing architecture goal is simple:
 - nearby and related discovery workflows
 - white-label, B2B, and B2C platform support
 
----
+## Documentation map
 
-## Repository Scope
-
-This public repository includes:
-
-- public-safe documentation
-- platform and architecture overviews
-- selected schemas and public-facing contracts
-- sanitized product and engineering documentation
-- contributor-facing setup material where appropriate
-
-This public repository intentionally does **not** include:
-
-- partner-specific configuration
-- production deployment internals
-- sensitive provider or billing logic
-- support/control-plane internals
-- internal alert routing
-- incident playbooks or escalation procedures
-- internal runtime/debug evidence
-- private operational governance artifacts
-
----
-
-## Documentation Map
-
-### Core public docs
+### Public-safe platform docs
 
 - [`docs/platform-overview.md`](docs/platform-overview.md)
 - [`docs/architecture-overview.md`](docs/architecture-overview.md)
@@ -120,28 +74,33 @@ This public repository intentionally does **not** include:
 - [`docs/program-10_5-partner-onboarding-package.md`](docs/program-10_5-partner-onboarding-package.md)
 - [`docs/partner-health-model.md`](docs/partner-health-model.md)
 
----
+### Internal authority and governance docs
 
-## Current Public Position
+- [CURRENT_TRUTH.md](CURRENT_TRUTH.md)
+  Canonical internal current-status authority.
+- [partner_preflight_checklist.md](partner_preflight_checklist.md)
+  Operational pre-activation control for partner go/no-go review.
+- [phase13-14-boundary.md](phase13-14-boundary.md)
+  Internal boundary/governance reference for later-phase claim discipline.
+- [real_signal_evidence_tracker.md](real_signal_evidence_tracker.md)
+  Internal tracker for real outreach, reply, pilot, and activation evidence only.
+- [AGENTS.md](AGENTS.md)
+  Repository-level Codex guardrails.
 
-RoadNomai should be understood publicly as:
+## Public repo alignment
 
-- a **shared platform core**
-- a **white-label-capable architecture**
-- a **B2B/B2C-capable product foundation**
-- a system with a strong emphasis on **modularity**, **configurability**, and **verification discipline**
+If material from this repository is mirrored into a public repository:
 
-The public repository is meant to communicate platform direction and public-safe engineering concepts, not to expose sensitive production internals.
+- keep only the public-safe platform description and public-safe docs
+- avoid internal status/governance docs as public authority
+- avoid partner-specific, operational, control-plane, or sensitive commercial material
+- do not turn internal readiness structure into public traction claims
 
----
+## Working rule
 
-## Getting Started
+For internal work:
 
-Use this repository as a public-facing reference for:
-
-- platform structure
-- high-level architecture
-- public-safe concepts and schemas
-- contributor-facing engineering context
-
-If you are looking for partner provisioning, production operations, private integrations, or internal runtime/debug workflows, those remain intentionally outside the public scope.
+- use [CURRENT_TRUTH.md](CURRENT_TRUTH.md) first for status
+- use [partner_preflight_checklist.md](partner_preflight_checklist.md) for partner activation review
+- use [phase13-14-boundary.md](phase13-14-boundary.md) for claim-boundary discipline
+- use [real_signal_evidence_tracker.md](real_signal_evidence_tracker.md) only when real external signal actually exists
